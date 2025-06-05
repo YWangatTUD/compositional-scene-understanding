@@ -13,7 +13,6 @@ We propose a compositional inverse generative modeling (IGM) framework for visua
 
 ![](sample_images/teaser_inference.gif)
 
-<hr>
 
 ## Setup
 
@@ -22,7 +21,7 @@ Run the following to create and activate a conda environment:
 conda env create -f environment.yml
 conda activate IGM
 ```
---------------------------------------------------------------------------------------------------------
+
 
 ## Training
 To train a compositional generative model on CLEVR, run the following:
@@ -51,7 +50,6 @@ CUDA_VISIBLE_DEVICES=0,1 accelerate launch --multi_gpu --num_processes=2 \
 --dataset_root /space/ywang86/celeba_labels --train_batch_size 64 \
 --resolution 128 --validation_steps 1000 --tracker_project_name celeba
 ```
---------------------------------------------------------------------------------------------------------
 
 ## Inference
 
@@ -76,8 +74,6 @@ To infer animal categories with pretrained SD, run the following:
 ```
 CUDA_VISIBLE_DEVICES=0 python infer_animal.py
 ```
-
-<hr>
 
 ## Data
 
