@@ -1,16 +1,5 @@
 # Compositional Scene Understanding through Inverse Generative Modeling
-
-We propose a compositional inverse generative modeling (IGM) framework for visual concept inference with zero-shot generalization capabilities. Our approach infers visual concepts by optimizing the conditional parameters of a compositional generative model, enabling interpreting images that are more complex than those seen during training.
-
-![](sample_images/teaser_inference.gif)
-
 ### [Project Page](https://energy-based-model.github.io/compositional-inference/) | [Paper](https://arxiv.org/abs/2505.21780)
-
-
-<hr>
-
-This is the official codebase for **Compositional Scene Understanding through Inverse Generative Modeling**.
-
 [Compositional Scene Understanding through Inverse Generative Modeling]()
     <br>
     [Yanbo Wang](https://ywangattud.github.io/website/) <sup>1</sup>,
@@ -19,6 +8,10 @@ This is the official codebase for **Compositional Scene Understanding through In
     <br>
     <sup>1</sup>TU Delft, <sup>2</sup>Harvard
     <br>
+
+We propose a compositional inverse generative modeling (IGM) framework for visual concept inference with zero-shot generalization capabilities. Our approach infers visual concepts by optimizing the conditional parameters of a compositional generative model, enabling interpreting images that are more complex than those seen during training.
+
+![](sample_images/teaser_inference.gif)
 
 <hr>
 
@@ -64,7 +57,7 @@ CUDA_VISIBLE_DEVICES=0,1 accelerate launch --multi_gpu --num_processes=2 \
 
 To infer object locations, run the following:
 ```
-CUDA_VISIBLE_DEVICES=0 python eval_clevr.py \
+CUDA_VISIBLE_DEVICES=0 python infer_clevr.py \
 --learning_rate 4e-3 \
 --scheduler_config configs/clevr-2D-pos/scheduler/scheduler_config.json \
 --unet_config configs/clevr-2D-pos/unet/config.json \
@@ -73,16 +66,15 @@ CUDA_VISIBLE_DEVICES=0 python eval_clevr.py \
 
 To infer facial attributes, run the following:
 ```
-CUDA_VISIBLE_DEVICES=0 python eval_celeba.py \
+CUDA_VISIBLE_DEVICES=0 python infer_celeba.py \
 --scheduler_config configs/clevr-2D-pos/scheduler/scheduler_config.json \
 --unet_config configs/clevr-2D-pos/unet/config.json \
---dataset_root /space/ywang86/celeba_labels  \
---resolution 128
+--dataset_root /space/ywang86/celeba_labels
 ```
 
 To infer animal categories with pretrained SD, run the following:
 ```
-CUDA_VISIBLE_DEVICES=0 python eval_animal.py
+CUDA_VISIBLE_DEVICES=0 python infer_animal.py
 ```
 
 <hr>
